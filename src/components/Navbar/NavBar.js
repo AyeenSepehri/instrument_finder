@@ -16,6 +16,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
+import Drawer from "../Drawer/Drawer"
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -79,6 +81,11 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const openDrawerHandler = () => {
+    console.log("its drawer button")
+    return <Drawer/>
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -164,8 +171,10 @@ export default function PrimarySearchAppBar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={openDrawerHandler}
           >
             <MenuIcon />
+            
           </IconButton>
           <Typography
             variant="h6"

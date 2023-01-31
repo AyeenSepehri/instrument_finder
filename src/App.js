@@ -1,6 +1,6 @@
 import Caption from './components/Caption';
 import MainWrapper from './components/MainWrapper';
-import DropDown from "./components/DropDown/DropDown"
+import Select from "./components/Select/Select"
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <MainWrapper>
         <Caption/>
-        <DropDown/>
+        <Select/>
       </MainWrapper>
     </div>
   );

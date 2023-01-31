@@ -29,8 +29,6 @@ function MainWrapper(props) {
         <Drawer/>
         <Card>
           {props.children}
-          {/* <button onClick={nextBtnHandler} disabled={true}>Next</button> */}
-          <Select/>
           <div className={classes.buttonWrapper}>
           <Button onClick={nextBtnHandler}>Next</Button>
           <Button>preview</Button>

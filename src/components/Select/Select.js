@@ -5,8 +5,17 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import {useSelector} from "react-redux"
+
+
 export default function BasicSelect() {
   const [age, setAge] = React.useState('');
+  const counter = useSelector((state) => state.questions.index)
+    const data = useSelector((state) => state.questions.datas)
+
+
+    const options = data[counter].options
+
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -23,9 +32,11 @@ export default function BasicSelect() {
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {options.map((item) => {
+            return(
+              <MenuItem>{item}</MenuItem>
+            )
+          })}
         </Select>
       </FormControl>
     </Box>

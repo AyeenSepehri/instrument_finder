@@ -22,12 +22,14 @@ function MainWrapper(props) {
     <div>
       <Drawer>
         <Card>
+          <div>
           {props.children}
-          <div className={classes.buttonWrapper}>
-            <Button onClick={nextBtnHandler}>Next</Button>
-            <Button>preview</Button>
           </div>
         </Card>
+          <div className={classes.buttonWrapper}>
+            <Button onClick={nextBtnHandler}>بعدی</Button>
+            <Button>قبلی</Button>
+          </div>
       </Drawer>
     </div>
   )

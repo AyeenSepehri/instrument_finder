@@ -13,6 +13,8 @@ export default function BasicSelect() {
   const counter = useSelector((state) => state.questions.index)
     const data = useSelector((state) => state.questions.datas)
 
+    const title = useSelector((state) => state.questions.datas[counter].type)
+
 
     const options = data[counter].options
 
@@ -23,18 +25,19 @@ export default function BasicSelect() {
 
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      <FormControl fullWidth margin='normal'>
+        <InputLabel id="demo-simple-select-label">{title}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
-          label="Age"
+          label={age}
           onChange={handleChange}
         >
           {options.map((item) => {
+            // setAge(item.type)
             return(
-              <MenuItem>{item}</MenuItem>
+              <MenuItem value={item}>{item}</MenuItem>
             )
           })}
         </Select>

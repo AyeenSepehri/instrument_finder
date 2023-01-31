@@ -37,8 +37,8 @@ const questionDatas = [
       id: Math.random(),
       number: 1,
       type: "Drop_Down",
-      caption: "please choose your instrument:",
-      options: ["guitar" , "violin" , "piano"],
+      caption: "لطفا ساز مورد نظر خود را انتخاب کنید:",
+      options: ["گیتار" , "ویولن" , "پیانو"],
       nextBtnDisable: true
     }
 
@@ -57,8 +57,6 @@ export const questionSlice = createSlice({
     reducers: {
       nextButton(state) {
         state.index += 1
-        // state.currensObject = state.datas[state.index]
-        // console.log(state.currensObject)
       }
     }
 })

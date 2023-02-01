@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { nextButton } from "../store/store"
+import { nextButton , previewButton } from "../store/store"
 import Drawer from "./Drawer/Drawer";
 import Button from "./Button/Button"
 import Card from '../layout/Card';
@@ -17,6 +17,9 @@ function MainWrapper(props) {
     dispatch(nextButton())
     aSound.play()
   }
+  const prevBtnHandler = () => {
+    dispatch(previewButton())
+  }
 
   return (
     <div>
@@ -28,7 +31,7 @@ function MainWrapper(props) {
         </Card>
           <div className={classes.buttonWrapper}>
             <Button onClick={nextBtnHandler}>بعدی</Button>
-            <Button>قبلی</Button>
+            <Button onClick={prevBtnHandler}>قبلی</Button>
           </div>
       </Drawer>
     </div>

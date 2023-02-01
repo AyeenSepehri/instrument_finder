@@ -40,8 +40,14 @@ const questionDatas = [
       caption: "لطفا ساز مورد نظر خود را انتخاب کنید:",
       options: ["گیتار" , "ویولن" , "پیانو"],
       nextBtnDisable: true
+    },
+    {
+      id: Math.random(),
+      number: 2,
+      type: "Range",
+      caption: "لطفا حدود قیمت ساز مورد نظر خود را وارد کنید:" ,
+      values:[],
     }
-
   ]
   
 
@@ -57,11 +63,15 @@ export const questionSlice = createSlice({
     reducers: {
       nextButton(state) {
         state.index += 1
+        console.log(state.index)
+      },
+      previewButton(state) {
+        state.index -= 1
       }
     }
 })
 
-export const { nextButton } = questionSlice.actions;
+export const { nextButton , previewButton } = questionSlice.actions;
 
 export const store = configureStore({
     reducer: {

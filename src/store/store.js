@@ -38,7 +38,18 @@ const questionDatas = [
       number: 1,
       type: "Drop_Down",
       caption: "لطفا ساز مورد نظر خود را انتخاب کنید:",
-      options: ["گیتار" , "ویولن" , "پیانو"],
+      options: [{
+        name: "گیتار",
+        priceRange: [1 , 10]
+      } , 
+      {
+        name: "ویولن",
+        priceRange: [2 , 20]
+      } , 
+    {
+      name: "پیانو",
+      priceRange: [3 , 30]
+    }],
       nextBtnDisable: true
     },
     {
@@ -54,7 +65,8 @@ const questionDatas = [
 const initialState = {
     index: 0,
     datas: questionDatas,
-    currensObject: {}
+    currensObject: {},
+    currentInstrument: []
 }
 
 export const questionSlice = createSlice({
@@ -67,11 +79,15 @@ export const questionSlice = createSlice({
       },
       previewButton(state) {
         state.index -= 1
+      },
+      currentInstrument(state , action) {
+        state.currentInstrument = action.payload
+        console.log(state.currentInstrument)
       }
     }
 })
 
-export const { nextButton , previewButton } = questionSlice.actions;
+export const { nextButton , previewButton , currentInstrument } = questionSlice.actions;
 
 export const store = configureStore({
     reducer: {
